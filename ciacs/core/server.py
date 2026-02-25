@@ -117,7 +117,7 @@ class MultiServer(object):
                     clw.write(str(json.dumps(add_to_list)))
                     clw.close()
                 self.get_file(conn, data)
-                import jsonreader
+                from ciacs.core import jsonreader
                 jsonreader.read()
                 continue
         return

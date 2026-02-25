@@ -2,80 +2,11 @@ import json
 import psycopg2
 
 
-class Computer(object):
-    def __init__(self, id, ip_conn):
-        self.id = id
-        self.ip = ip_conn
-        self.os = OS()
-        self.hardware = Hardware()
-        self.software = Software()
-
-
-class OS(object):
-    def __init__(self, name, build, bits):
-        self.name = name
-        self.build = build
-        self.bits = bits
-
-
-class Hardware(object):
-    def __init__(self):
-        self.motherboard = MotherBoard()
-        self.cpu = CPU()
-        self.gpu = GPU()
-        self.ram = RAM()
-        self.disk = Disk()
-
-
-class MotherBoard(object):
-    def __init__(self, manufacturer, name):
-        self.manufacturer = manufacturer
-        self.name = name
-
-
-class CPU(object):
-    def __init__(self, manufacturer, name, cores, threads, speed, bits):
-        self.manufacturer = manufacturer
-        self.name = name
-        self.cores = cores
-        self.threads = threads
-        self.speed = speed
-        self.bits = bits
-
-
-class GPU(object):
-    def __init__(self, manufacturer, name, capacity):
-        self.manufacturer = manufacturer
-        self.name = name
-        self.capacity = capacity
-
-
-class RAM(object):
-    def __init__(self, manufacturer, name, type, capacity):
-        self.manufacturer = manufacturer
-        self.name = name
-        self.type = type
-        self.capacity = capacity
-
-
-class Disk(object):
-    def __init__(self, type, capacity):
-        self.type = type
-        self.capacity = capacity
-
-
-class Software(object):
-    def __init__(self, name, version):
-        self.name = name
-        self.version = version
-
-
-class read(object):
+class ReadJson:
     clients = open('clients.json')
     clist = json.load(clients)
     ip_conn = clist['ip']
     file = open('fileProj.json')
-    output = {}
     output = json.load(file)
 
     os = output['os']
